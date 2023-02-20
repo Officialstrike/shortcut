@@ -266,15 +266,20 @@ class ForegroundService : Service() {
                 // doesn't show up in UI :/ https://issuetracker.google.com/issues/269956237
                audioManager.setStreamVolume(AudioManager.STREAM_RING, AudioManager.ADJUST_MUTE,  AudioManager.FLAG_ALLOW_RINGER_MODES or AudioManager.FLAG_SHOW_UI)
          */
+        audioManager.setStreamVolume(
+            AudioManager.STREAM_RING,
+            AudioManager.ADJUST_MUTE,
+            AudioManager.FLAG_SHOW_UI
+        )
 
 
-        if (audioManager.ringerMode == mode) {
-            audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
-            return
-        }
-
-
-        audioManager.ringerMode = mode
+//        if (audioManager.ringerMode == mode) {
+//            audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
+//            return
+//        }
+//
+//
+//        audioManager.ringerMode = mode
     }
 
     private val powerButtonReceiver = object : BroadcastReceiver() {
