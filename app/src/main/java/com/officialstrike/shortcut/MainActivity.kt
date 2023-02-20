@@ -28,6 +28,7 @@ import kotlin.concurrent.schedule
 enum class ConfigSoundModes {
     SILENT, VIBRATE
 }
+
 // TODO: https://developer.android.com/studio/write/image-asset-studio
 private var soundMode by mutableStateOf(ConfigSoundModes.SILENT);
 private var buttonClicks by mutableStateOf(2)
@@ -236,6 +237,7 @@ class ForegroundService : Service() {
         }
 
     }
+
     private fun setRingerMode(audioManager: AudioManager, mode: Int) {
         /*
     // Proposed solutions that don't really work:
@@ -281,7 +283,7 @@ class ForegroundService : Service() {
 
                 val currentTime = System.currentTimeMillis()
 
-                if(isPowerButtonPressed == buttonClicks && currentTime - powerButtonPressTime > 250 ) {
+                if (isPowerButtonPressed == buttonClicks && currentTime - powerButtonPressTime > 250) {
                     isPowerButtonPressed = 1
                     return
                 }
